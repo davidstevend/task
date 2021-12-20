@@ -10,9 +10,7 @@ class TaskController extends Controller
 {
 
     public function __construct()
-    {
-      //con este metodo, no se da acceso al controlador si el 
-      //usuario no esta logueado
+    {     
       $this->middleware('auth');
     }
     /**
@@ -27,17 +25,8 @@ class TaskController extends Controller
 
 
             $tasks = Task::orderBy('id','desc')
-
             ->get();
-            
-      
-        
-        // ->where([['task', 'LIKE', '%' . $search . '%'],['user_id',  '=',Auth::User()->id]])
-        // ->orwhere([['description', 'LIKE', '%' . $search . '%'],['user_id',  '=',Auth::User()->id]])
-
-   
-
-// dd('sd');
+           
         return $tasks; 
     }
 

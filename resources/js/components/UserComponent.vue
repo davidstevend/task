@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <b>LISTADO DE TAREAS</b>
+            <b>LISTADO DE USUARIOS</b>
 
             <!-- Button modal -->
             <button
@@ -15,7 +15,7 @@
               type="button"
               class="btn btn-primary"
             >
-              NUEVA TAREA
+              NUEVO USUARIO
             </button>
 
             <!-- Modal -->
@@ -36,51 +36,52 @@
                   </div>
                   <div class="modal-body">
                     <div>
-                      <label for="task"><b>Tarea</b></label>
+                      <label for="name"><b>Nombre</b></label>
                       <input
-                        v-model="task.task"
+                        v-model="user.user"
                         type="text"
                         class="form-control"
-                        id="task"
-                        placeholder="Nombre de la Tarea"
-                        name="task"
+                        id="name"
+                        placeholder="Nombre"
+                        name="name"
                       />
                     </div>
                     <div>
-                      <label for="description"><b>Descripción</b></label>
+                      <label for="email"><b>Email</b></label>
                       <input
-                        v-model="task.description"
+                        v-model="user.email"
                         type="text"
                         class="form-control"
-                        id="description"
-                        placeholder="Descripción de la Tarea"
-                        name="description"
+                        id="email"
+                        placeholder="Email"
+                        name="email"
                       />
                     </div>
                     <div>
-                      <label for="expiration_date"
-                        ><b>Fecha de Vencimiento</b></label
-                      >
+                      <label for="password"><b>password</b></label>
                       <input
-                        v-model="task.expiration_date"
-                        type="date"
+                        v-model="user.password"
+                        type="text"
                         class="form-control"
-                        id="expiration_date"
-                        name="expiration_date"
+                        id="password"
+                        placeholder="password"
+                        name="password"
                       />
                     </div>
+                    <div>
+                      <label for="password-confirm"><b>password</b></label>
+                      <input
+                        v-model="user.email"
+                        type="text"
+                        class="form-control"
+                        id="password-confirm"
+                        placeholder="password-confirm"
+                        name="password-confirm"
+                      />
+                    </div>
+
                     <br />
-                    <div>
-                      <label for="finished6"><b>Finalizada: </b></label>
-                      <select
-                        name="finished"
-                        id="finished"
-                        v-model="task.finished"
-                      >
-                        <option value="NO">NO</option>
-                        <option value="SI">SI</option>
-                      </select>
-                    </div>
+
                     <!-- <div>
                         <label for="finished"><b>Finalizada</b></label>
                         <input type="radio" id="finished" name="finished" value="SI">
@@ -113,53 +114,47 @@
 
           <div class="card-body table-responsive">
             <div class="row">
-                <div class="col-lg-8 col-md-8 ">
-              <!-- <label for="task"><b>buscar</b></label> -->
-              <input
-                type="search"
-                class="form-control"
-                id="search"
-                placeholder="Buscar Tarea"
-                name="search"
-                autocomplete="off"
-                v-model="search"
-              />
-              {{ search }}
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-              <button type="button" class="btn btn-primary">
-              <!-- <button @click="buscar()" type="button" class="btn btn-primary"> -->
-                Guardar
-              </button>
-                </div>
+              <div class="col-lg-8 col-md-8">
+                <!-- <label for="task"><b>buscar</b></label> -->
+                <input
+                  type="search"
+                  class="form-control"
+                  id="search"
+                  placeholder="Buscar"
+                  name="search"
+                  autocomplete="off"
+                  v-model="search"
+                />
+               
+              </div>
+              <div class="col-lg-4 col-md-4">
+                <button type="button" class="btn btn-primary">
+                  <!-- <button @click="buscar()" type="button" class="btn btn-primary"> -->
+                  Guardar
+                </button>
+              </div>
             </div>
-            <br>
-            <br>
+            <br />
+            <br />
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">NOMBRE</th>
-                  <th scope="col">DESCRIPCION</th>
-                  <th scope="col">FECHA CREACION</th>
-                  <th scope="col">FECHA EXPIRACIÓN</th>
-                  <th scope="col">TERMINADA</th>
-                  <th scope="col" colspan="2" class="text-center">ACCIONES</th>
+                  <th scope="col">EMAIL</th>                 
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="task in tasks" :key="task.id">
-                  <th scope="row">{{ task.id }}</th>
-                  <td>{{ task.task }}</td>
-                  <td>{{ task.description }}</td>
-                  <td>{{ task.date }}</td>
-                  <td>{{ task.expiration_date }}</td>
-                  <td>{{ task.finished }}</td>
+                <tr v-for="user in users" :key="user.id">
+                  <th scope="row">{{ user.id }}</th>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  
                   <td>
                     <button
                       @click="
                         update = true;
-                        openModal(task);
+                        openModal(user);
                       "
                       class="btn btn-warning"
                     >
@@ -167,7 +162,7 @@
                     </button>
                   </td>
                   <td>
-                    <button @click="eliminar(task.id)" class="btn btn-danger">
+                    <button @click="eliminar(user.id)" class="btn btn-danger">
                       ELIMINAR
                     </button>
                   </td>
@@ -182,48 +177,43 @@
 </template>
 
 <script>
-
 export default {
-
   data() {
     return {
-      task: {
-        task: "",
-        description: "",
-        date: "",
-        expiration_date: "",
-        finished: "",
-        search: "",
+      user: {
+        name: "",
+        email: "",
+        
       },
       id: 0,
       update: true,
       modal: 0,
       titleModal: " ",
-      tasks: [],
-      search:'',
-    }
+      user: [],
+      search: "",
+    };
   },
 
   methods: {
     async list() {
-      const res = await axios.get("tasks");
-      this.tasks = res.data;
+      const res = await axios.get("users");
+      this.users = res.data;
     },
-      async buscar() {
-      const res = await axios.get("tasks");
-      this.tasks = res.data;
+    async buscar() {
+      const res = await axios.get("users");
+      this.users = res.data;
     },
- 
+
     async eliminar(id) {
-      const res = await axios.delete("tasks/" + id);
+      const res = await axios.delete("users/" + id);
       this.list();
     },
 
     async save() {
       if (this.update) {
-        const res = await axios.put("tasks/" + this.id, this.task);
+        const res = await axios.put("users/" + this.id, this.task);
       } else {
-        const res = await axios.post("tasks", this.task);
+        const res = await axios.post("users", this.task);
       }
       this.closeModal();
       this.list();
@@ -234,21 +224,18 @@ export default {
 
       if (this.update) {
         this.modal = data.id;
-        this.titleModal = "Editar Tarea";
+        this.titleModal = "Editar usuario";
         this.id = data.id;
 
-        this.task.task = data.task;
-        this.task.description = data.description;
-        this.task.expiration_date = data.expiration_date;
-        this.task.finished = data.finished;
+        this.task.name = data.name;
+        this.task.email = data.email;
+       
       } else {
         this.id = 0;
         this.modal = 1;
-        this.titleModal = "Crear Tarea";
-        this.task.task = "";
-        this.task.description = "";
-        this.task.expiration_date = "";
-        this.task.finished = "";
+        this.titleModal = "Crear usuario";
+        this.task.name = "";
+        this.task.email = "";
       }
     },
 

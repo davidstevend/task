@@ -5918,7 +5918,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 }
 
                 _context4.next = 3;
-                return axios.put("users/" + _this4.id, _this4.task);
+                return axios.put("users/" + _this4.id, _this4.user);
 
               case 3:
                 res = _context4.sent;
@@ -5927,7 +5927,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 6:
                 _context4.next = 8;
-                return axios.post("users", _this4.task);
+                return axios.post("users", _this4.user);
 
               case 8:
                 _res = _context4.sent;
@@ -5953,14 +5953,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.modal = data.id;
         this.titleModal = "Editar usuario";
         this.id = data.id;
-        this.task.name = data.name;
-        this.task.email = data.email;
+        this.user.name = data.name;
+        this.user.email = data.email;
       } else {
         this.id = 0;
         this.modal = 1;
         this.titleModal = "Crear usuario";
-        this.task.name = "";
-        this.task.email = "";
+        this.user.name = "";
+        this.user.email = "";
       }
     },
     closeModal: function closeModal() {
@@ -30483,68 +30483,6 @@ var render = function () {
                       }),
                     ]),
                     _vm._v(" "),
-                    _c("div", [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.password,
-                            expression: "user.password",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "password",
-                          placeholder: "password",
-                          name: "password",
-                        },
-                        domProps: { value: _vm.user.password },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "password", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.email,
-                            expression: "user.email",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "password-confirm",
-                          placeholder: "password-confirm",
-                          name: "password-confirm",
-                        },
-                        domProps: { value: _vm.user.email },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "email", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
                     _c("br"),
                   ]),
                   _vm._v(" "),
@@ -30622,7 +30560,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _vm._m(4),
+              _vm._m(2),
             ]),
             _vm._v(" "),
             _c("br"),
@@ -30630,7 +30568,7 @@ var render = function () {
             _c("br"),
             _vm._v(" "),
             _c("table", { staticClass: "table table-striped table-hover" }, [
-              _vm._m(5),
+              _vm._m(3),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -30708,22 +30646,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "email" } }, [
       _c("b", [_vm._v("Email")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "password" } }, [
-      _c("b", [_vm._v("password")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "password-confirm" } }, [
-      _c("b", [_vm._v("password")]),
     ])
   },
   function () {

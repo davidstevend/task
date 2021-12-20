@@ -23,6 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/usuarios', [App\Http\Controllers\HomeController::class, 'usuarios'])->name('usuarios');
 
 Route::apiResource('/tasks', TaskController::class);
 Route::apiResource('/users', UserController::class);

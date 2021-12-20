@@ -57,7 +57,7 @@
                         name="email"
                       />
                     </div>
-                    <div>
+                    <!-- <div>
                       <label for="password"><b>password</b></label>
                       <input
                         v-model="user.password"
@@ -67,8 +67,8 @@
                         placeholder="password"
                         name="password"
                       />
-                    </div>
-                    <div>
+                    </div> -->
+                    <!-- <div>
                       <label for="password-confirm"><b>password</b></label>
                       <input
                         v-model="user.email"
@@ -78,7 +78,7 @@
                         placeholder="password-confirm"
                         name="password-confirm"
                       />
-                    </div>
+                    </div> -->
 
                     <br />
 
@@ -115,7 +115,7 @@
           <div class="card-body table-responsive">
             <div class="row">
               <div class="col-lg-8 col-md-8">
-                <!-- <label for="task"><b>buscar</b></label> -->
+                <!-- <label for="user"><b>buscar</b></label> -->
                 <input
                   type="search"
                   class="form-control"
@@ -211,9 +211,9 @@ export default {
 
     async save() {
       if (this.update) {
-        const res = await axios.put("users/" + this.id, this.task);
+        const res = await axios.put("users/" + this.id, this.user);
       } else {
-        const res = await axios.post("users", this.task);
+        const res = await axios.post("users", this.user);
       }
       this.closeModal();
       this.list();
@@ -227,15 +227,15 @@ export default {
         this.titleModal = "Editar usuario";
         this.id = data.id;
 
-        this.task.name = data.name;
-        this.task.email = data.email;
+        this.user.name = data.name;
+        this.user.email = data.email;
        
       } else {
         this.id = 0;
         this.modal = 1;
         this.titleModal = "Crear usuario";
-        this.task.name = "";
-        this.task.email = "";
+        this.user.name = "";
+        this.user.email = "";
       }
     },
 

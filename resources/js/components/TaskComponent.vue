@@ -121,12 +121,14 @@
                 id="search"
                 placeholder="Buscar Tarea"
                 name="search"
+                autocomplete="off"
                 v-model="search"
               />
-              <!-- {{ search }} -->
+              {{ search }}
                 </div>
                 <div class="col-lg-4 col-md-4 ">
-              <button @click="buscar()" type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary">
+              <!-- <button @click="buscar()" type="button" class="btn btn-primary"> -->
                 Guardar
               </button>
                 </div>
@@ -180,8 +182,9 @@
 </template>
 
 <script>
-import { config } from 'vue/types/umd';
+
 export default {
+
   data() {
     return {
       task: {
@@ -190,15 +193,15 @@ export default {
         date: "",
         expiration_date: "",
         finished: "",
-        // search: "",
+        search: "14",
       },
       id: 0,
       update: true,
       modal: 0,
       titleModal: " ",
       tasks: [],
-      search:''
-    };
+      search:'1',
+    }
   },
 
   methods: {
@@ -206,14 +209,11 @@ export default {
       const res = await axios.get("tasks");
       this.tasks = res.data;
     },
-    async buscar() {
-      const res = await axios.get("tasks", {
-          params:{
-              search : this.search
-          }
-      });
+      async buscar() {
+      const res = await axios.get("tasks");
       this.tasks = res.data;
     },
+ 
     async eliminar(id) {
       const res = await axios.delete("tasks/" + id);
       this.list();

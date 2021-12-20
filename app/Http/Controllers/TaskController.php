@@ -23,13 +23,17 @@ class TaskController extends Controller
     public function index(Request $request)
     {
 
-        $search = $request->search;
+       // $search = $request->search;
 
-        $tasks = Task::orderBy('id','desc')
+
+            $tasks = Task::orderBy('id','desc')
+
+            ->get();
+            
+      
         
-        ->where([['task', 'LIKE', '%' . $search . '%'],['user_id',  '=',Auth::User()->id]])
-        ->orwhere([['description', 'LIKE', '%' . $search . '%'],['user_id',  '=',Auth::User()->id]])
-        ->get();
+        // ->where([['task', 'LIKE', '%' . $search . '%'],['user_id',  '=',Auth::User()->id]])
+        // ->orwhere([['description', 'LIKE', '%' . $search . '%'],['user_id',  '=',Auth::User()->id]])
 
    
 

@@ -5256,7 +5256,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vue/types/umd'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -5444,7 +5443,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5453,15 +5453,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         description: "",
         date: "",
         expiration_date: "",
-        finished: "" // search: "",
-
+        finished: "",
+        search: "14"
       },
       id: 0,
       update: true,
       modal: 0,
       titleModal: " ",
       tasks: [],
-      search: ''
+      search: '1'
     };
   },
   methods: {
@@ -5499,11 +5499,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get("tasks", {
-                  params: {
-                    search: _this2.search
-                  }
-                });
+                return axios.get("tasks");
 
               case 2:
                 res = _context2.sent;
@@ -29680,6 +29676,7 @@ var render = function () {
                     id: "search",
                     placeholder: "Buscar Tarea",
                     name: "search",
+                    autocomplete: "off",
                   },
                   domProps: { value: _vm.search },
                   on: {
@@ -29691,23 +29688,12 @@ var render = function () {
                     },
                   },
                 }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4 col-md-4 " }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.buscar()
-                      },
-                    },
-                  },
-                  [_vm._v("\n              Guardar\n            ")]
+                _vm._v(
+                  "\n            " + _vm._s(_vm.search) + "\n              "
                 ),
               ]),
+              _vm._v(" "),
+              _vm._m(4),
             ]),
             _vm._v(" "),
             _c("br"),
@@ -29715,7 +29701,7 @@ var render = function () {
             _c("br"),
             _vm._v(" "),
             _c("table", { staticClass: "table table-striped table-hover" }, [
-              _vm._m(4),
+              _vm._m(5),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -29813,6 +29799,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "finished6" } }, [
       _c("b", [_vm._v("Finalizada: ")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-4 col-md-4 " }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("\n              Guardar\n            ")]
+      ),
     ])
   },
   function () {

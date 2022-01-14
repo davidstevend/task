@@ -5445,6 +5445,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5461,7 +5472,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       modal: 0,
       titleModal: " ",
       tasks: [],
-      search: ''
+      search: ""
     };
   },
   methods: {
@@ -5489,7 +5500,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    buscar: function buscar() {
+    buscarTareas: function buscarTareas() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -5499,7 +5510,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get("tasks");
+                return axios.get("tasks", {
+                  params: {
+                    search: _this2.search
+                  }
+                });
 
               case 2:
                 res = _context2.sent;
@@ -5633,8 +5648,21 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5815,18 +5843,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    var _ref;
-
-    return _ref = {
+    return {
       user: {
         name: "",
-        email: ""
+        email: "",
+        password: "",
+        password_confirm: ""
       },
       id: 0,
       update: true,
       modal: 0,
-      titleModal: " "
-    }, _defineProperty(_ref, "user", []), _defineProperty(_ref, "search", ""), _ref;
+      titleModal: " ",
+      users: [],
+      search: ""
+    };
   },
   methods: {
     list: function list() {
@@ -5853,7 +5883,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee);
       }))();
     },
-    buscar: function buscar() {
+    buscarUser: function buscarUser() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -5863,7 +5893,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get("users");
+                return axios.get("users", {
+                  params: {
+                    search: _this2.search
+                  }
+                });
 
               case 2:
                 res = _context2.sent;
@@ -5922,22 +5956,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 3:
                 res = _context4.sent;
-                _context4.next = 9;
+                _context4.next = 10;
                 break;
 
               case 6:
-                _context4.next = 8;
+                console.log('sjs');
+                _context4.next = 9;
                 return axios.post("users", _this4.user);
 
-              case 8:
+              case 9:
                 _res = _context4.sent;
 
-              case 9:
+              case 10:
                 _this4.closeModal();
 
                 _this4.list();
 
-              case 11:
+              case 12:
               case "end":
                 return _context4.stop();
             }
@@ -11092,7 +11127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.show {\r\n  display: list-item;\r\n  opacity: 1;\r\n  background: rgba(44, 38, 75, 0.849);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.show {\r\n    display: list-item;\r\n    opacity: 1;\r\n    background: rgba(44, 38, 75, 0.849);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11116,7 +11151,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.show {\r\n  display: list-item;\r\n  opacity: 1;\r\n  background: rgba(44, 38, 75, 0.849);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.show {\r\n    display: list-item;\r\n    opacity: 1;\r\n    background: rgba(44, 38, 75, 0.849);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29930,7 +29965,11 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            NUEVA TAREA\n          ")]
+              [
+                _vm._v(
+                  "\n                        NUEVA TAREA\n                    "
+                ),
+              ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "modal", class: { show: _vm.modal } }, [
@@ -29945,9 +29984,9 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                    " +
+                          "\n                                        " +
                             _vm._s(_vm.titleModal) +
-                            "\n                  "
+                            "\n                                    "
                         ),
                       ]
                     ),
@@ -30132,7 +30171,7 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                    Cerrar\n                  "
+                          "\n                                        Cerrar\n                                    "
                         ),
                       ]
                     ),
@@ -30150,7 +30189,7 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                    Guardar\n                  "
+                          "\n                                        Guardar\n                                    "
                         ),
                       ]
                     ),
@@ -30162,7 +30201,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-8 col-md-8 " }, [
+              _c("div", { staticClass: "col-lg-8 col-md-8" }, [
                 _c("input", {
                   directives: [
                     {
@@ -30182,6 +30221,15 @@ var render = function () {
                   },
                   domProps: { value: _vm.search },
                   on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.buscarTareas.apply(null, arguments)
+                    },
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
@@ -30191,11 +30239,30 @@ var render = function () {
                   },
                 }),
                 _vm._v(
-                  "\n            " + _vm._s(_vm.search) + "\n              "
+                  "\n                            " +
+                    _vm._s(_vm.search) +
+                    "\n                        "
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(4),
+              _c("div", { staticClass: "col-lg-4 col-md-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-info",
+                    on: {
+                      click: function ($event) {
+                        return _vm.buscarTareas()
+                      },
+                    },
+                  },
+                  [
+                    _vm._v(
+                      "\n                                        BUSCAR\n                            "
+                    ),
+                  ]
+                ),
+              ]),
             ]),
             _vm._v(" "),
             _c("br"),
@@ -30203,7 +30270,7 @@ var render = function () {
             _c("br"),
             _vm._v(" "),
             _c("table", { staticClass: "table table-striped table-hover" }, [
-              _vm._m(5),
+              _vm._m(4),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -30237,7 +30304,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                    EDITAR\n                  "
+                            "\n                                        EDITAR\n                                    "
                           ),
                         ]
                       ),
@@ -30256,7 +30323,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                    ELIMINAR\n                  "
+                            "\n                                        ELIMINAR\n                                    "
                           ),
                         ]
                       ),
@@ -30307,18 +30374,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-4 col-md-4 " }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("\n              Guardar\n            ")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
@@ -30336,7 +30391,11 @@ var staticRenderFns = [
         _c(
           "th",
           { staticClass: "text-center", attrs: { scope: "col", colspan: "2" } },
-          [_vm._v("ACCIONES")]
+          [
+            _vm._v(
+              "\n                                    ACCIONES\n                                "
+            ),
+          ]
         ),
       ]),
     ])
@@ -30383,7 +30442,11 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            NUEVO USUARIO\n          ")]
+              [
+                _vm._v(
+                  "\n                        NUEVO USUARIO\n                    "
+                ),
+              ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "modal", class: { show: _vm.modal } }, [
@@ -30398,9 +30461,9 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                    " +
+                          "\n                                        " +
                             _vm._s(_vm.titleModal) +
-                            "\n                  "
+                            "\n                                    "
                         ),
                       ]
                     ),
@@ -30429,8 +30492,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.user.user,
-                            expression: "user.user",
+                            value: _vm.user.name,
+                            expression: "user.name",
                           },
                         ],
                         staticClass: "form-control",
@@ -30440,13 +30503,13 @@ var render = function () {
                           placeholder: "Nombre",
                           name: "name",
                         },
-                        domProps: { value: _vm.user.user },
+                        domProps: { value: _vm.user.name },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.user, "user", $event.target.value)
+                            _vm.$set(_vm.user, "name", $event.target.value)
                           },
                         },
                       }),
@@ -30483,6 +30546,72 @@ var render = function () {
                       }),
                     ]),
                     _vm._v(" "),
+                    _c("div", [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.password,
+                            expression: "user.password",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "password",
+                          id: "password",
+                          placeholder: "password",
+                          name: "password",
+                        },
+                        domProps: { value: _vm.user.password },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.user, "password", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.password_confirm,
+                            expression: "user.password_confirm",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "password",
+                          id: "password-confirm",
+                          placeholder: "password-confirm",
+                          name: "password-confirm",
+                        },
+                        domProps: { value: _vm.user.password_confirm },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.user,
+                              "password_confirm",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
                     _c("br"),
                   ]),
                   _vm._v(" "),
@@ -30500,7 +30629,7 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                    Cerrar\n                  "
+                          "\n                                        Cerrar\n                                    "
                         ),
                       ]
                     ),
@@ -30509,7 +30638,6 @@ var render = function () {
                       "button",
                       {
                         staticClass: "btn btn-primary",
-                        attrs: { type: "button" },
                         on: {
                           click: function ($event) {
                             return _vm.save()
@@ -30518,7 +30646,7 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                    Guardar\n                  "
+                          "\n                                        Guardar\n                                    "
                         ),
                       ]
                     ),
@@ -30550,6 +30678,15 @@ var render = function () {
                   },
                   domProps: { value: _vm.search },
                   on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.buscarUser.apply(null, arguments)
+                    },
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
@@ -30560,7 +30697,24 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _vm._m(2),
+              _c("div", { staticClass: "col-lg-4 col-md-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-info",
+                    on: {
+                      click: function ($event) {
+                        return _vm.buscarUser()
+                      },
+                    },
+                  },
+                  [
+                    _vm._v(
+                      "\n                                BUSCAR\n                            "
+                    ),
+                  ]
+                ),
+              ]),
             ]),
             _vm._v(" "),
             _c("br"),
@@ -30568,7 +30722,7 @@ var render = function () {
             _c("br"),
             _vm._v(" "),
             _c("table", { staticClass: "table table-striped table-hover" }, [
-              _vm._m(3),
+              _vm._m(4),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -30596,7 +30750,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                    EDITAR\n                  "
+                            "\n                                        EDITAR\n                                    "
                           ),
                         ]
                       ),
@@ -30615,7 +30769,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                    ELIMINAR\n                  "
+                            "\n                                        ELIMINAR\n                                    "
                           ),
                         ]
                       ),
@@ -30652,12 +30806,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("\n                Guardar\n              ")]
-      ),
+    return _c("label", { attrs: { for: "password" } }, [
+      _c("b", [_vm._v("password")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "password-confirm" } }, [
+      _c("b", [_vm._v("password")]),
     ])
   },
   function () {

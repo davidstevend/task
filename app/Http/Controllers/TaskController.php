@@ -11,7 +11,7 @@ class TaskController extends Controller
 
     public function __construct()
     {     
-      $this->middleware('auth');
+      //$this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -21,11 +21,12 @@ class TaskController extends Controller
     public function index(Request $request)
     {
 
-       // $search = $request->search;
+       $search = $request->search;   
 
-
-            $tasks = Task::orderBy('id','desc')
-            ->get();
+           $tasks = Task::where('task','LIKE','%'.$search.'%')
+           ->orwhere('description','LIKE','%'.$search.'%')
+           ->orderBy('id','desc')
+           ->get();
            
         return $tasks; 
     }

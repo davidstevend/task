@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function __construct()
-    {     
-      $this->middleware('auth');
+    {
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -19,13 +20,15 @@ class UserController extends Controller
     public function index(Request $request)
     {
 
-       // $search = $request->search;
+        $search = $request->search;
 
 
-            $users = User::orderBy('id','desc')
+        $users = User::where('name', 'LIKE', '%' . $search . '%')
+            ->orwhere('email', 'LIKE', '%' . $search . '%')
+            ->orderBy('id', 'ASC')
             ->get();
-           
-        return $users; 
+
+        return $users;
     }
 
     /**
@@ -36,18 +39,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $User = new User;
-        // $User->User                =  $request->User;
-        // $User->description         =  $request->description;
-        // $User->date                =  now();
-        // $User->expiration_date     =  $request->expiration_date;
-        // $User->user_id             =  Auth::user()->id;
-        // $User->finished            =  $request->finished;
-        // $User->save();
+        $User = new User;
+        $User->name                =  $request->name;
+        $User->email               =  $request->email;       
+        $User->password            =  Hash::make($request['password']);     
+        $User->save();
 
-        // return "guardada";
+        return "Creado con exito";
+       
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -56,7 +57,7 @@ class UserController extends Controller
      */
     public function show(User $User)
     {
-        return $User;        
+        return $User;
     }
 
     /**
@@ -70,14 +71,11 @@ class UserController extends Controller
     {
         // $User->update($request->all());
 
-        // $Usera = User::find($User->id);
-        // $Usera->User                =  $request->User;
-        // $Usera->description         =  $request->description;
-        // // $Usera->date                =  now();
-        // $Usera->expiration_date     =  $request->expiration_date;
-        // // $Usera->user_id             =  Auth::user()->id;
-        // $Usera->finished            =  $request->finished;
-        // $Usera->save();
+        $Usera = User::find($User->id);
+        $User->name                =  $request->name;
+        $User->email               =  $request->email;       
+        $User->password            =  Hash::make($request['password']);     
+        $User->save();
 
     }
 
@@ -89,7 +87,7 @@ class UserController extends Controller
      */
     public function destroy(User $User)
     {
-       
+
         $User->delete();
     }
 }
